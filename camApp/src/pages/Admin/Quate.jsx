@@ -154,7 +154,7 @@ export const Quate = () => {
 
                 <p className='text-end'>Total : ₹{data.totalAmount}  </p>
                 <p className='text-end'>
-                  Total With Gst : ₹{data.totalAmount * 18}
+                  Total With Gst : ₹{data.totalAmount * .18 + data.totalAmount}
                 </p>
               </div>
 

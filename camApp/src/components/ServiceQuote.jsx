@@ -118,7 +118,7 @@ export const ServiceQuote = () => {
                             <div className='flex flex-col text-end'>
 
                                 <span className='p-2'>Total Amount - {data.totalAmount}</span>
-                                <span className='p-2'>Total Amount with gst -{data.totalAmount * 18}</span>
+                                <span className='p-2'>Total Amount with gst -{data.totalAmount * .18 + data.totalAmount}</span>
 
                             </div>
                         </div>
