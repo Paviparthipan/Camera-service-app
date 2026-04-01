@@ -26,10 +26,10 @@ export const Adminsidebar = () => {
                         <Link className="block px-4 py-2 text-white hover:bg-gray-600 rounded" to="Bill" > Bills</Link>
                     </li>
                     <li className='transition-all duration-200 hover:scale-105 hover:ml-5  hover:shadow-2xl'>
-                        <Link className="block px-4 py-2 text-white hover:bg-gray-600 rounded" to="Quate"> Quatation</Link>
+                        <Link className="block px-4 py-2 text-white hover:bg-gray-600 rounded" to="Quate"> Quotation</Link>
                     </li>
                     <li className='transition-all duration-200 hover:scale-105 hover:ml-5  hover:shadow-2xl'>
-                        <Link className="block px-4 py-2 text-white hover:bg-gray-600 rounded" to="Inventery"> Inventary</Link>
+                        <Link className="block px-4 py-2 text-white hover:bg-gray-600 rounded" to="Inventery"> Inventory</Link>
                     </li>
                 </ul>
             </div>
