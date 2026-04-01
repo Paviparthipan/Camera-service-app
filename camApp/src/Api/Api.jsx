@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:5000/camapp"
+    baseURL: "https://camera-service-app.onrender.com/camapp"
 });
 
 export default api;
