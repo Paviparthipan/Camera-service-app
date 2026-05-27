@@ -46,33 +46,28 @@ export const ServiceLogin = () => {
 
 
   return (
-
-
-
-    <div className='h-screen flex justify-center items-center bg-cover bg-no-repeat bg-center'
+    <div className='h-screen flex items-center justify-center bg-cover bg-no-repeat bg-center px-4'
       style={{ backgroundImage: `url(${bg})` }}>
 
-      <div className='p-20 text-center bg-black/50 min-h-110 text-white'>
-        <h2>Service Login</h2>
-        <form action="" onSubmit={login} className=' mt-5'>
+      <div className='w-full max-w-md rounded-xl bg-black/60 p-8 text-white shadow-2xl'>
+        <h2 className='text-3xl font-semibold'>Service Login</h2>
+        <form action="" onSubmit={login} className='mt-6 space-y-4'>
           <input type="text"
             name='userName'
             value={formData.userName}
             onChange={handleChange}
             placeholder='Enter user name'
-            className='w-85 px-5 py-4  rounded border' /> <br />
+            className='w-full rounded border bg-white/10 px-4 py-3 text-white outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-300' />
           <input type="password"
             name='password'
             value={formData.password}
             onChange={handleChange}
             placeholder='Enter password'
-            className='w-85 px-5 py-4 mt-5 border rounded' /> <br />
-          <p className='text-lg text-red-700 mt-2'>{message}</p>
-          <button type='submit' className='mt-5 bg-blue-700 px-6 py-2  text-lg rounded-sm hover:bg-blue-600'>LogIn</button>
+            className='w-full rounded border bg-white/10 px-4 py-3 text-white outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-300' />
+          <p className='text-lg text-red-300'>{message}</p>
+          <button type='submit' className='w-full rounded-sm bg-blue-700 px-6 py-3 text-lg font-semibold text-white hover:bg-blue-600'>LogIn</button>
         </form>
       </div>
-
-
     </div>
 
 

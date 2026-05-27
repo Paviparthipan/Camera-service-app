@@ -50,63 +50,57 @@ export const Adash = () => {
 
 
     return (
-        <div className='  h-screen '>
+        <div className='min-h-screen px-4 py-10'>
 
-            <div className='flex flex-wrap justify-center gap-20 mt-20'>
+            <div className='mx-auto flex max-w-7xl flex-wrap justify-center gap-6'>
 
-                <div className='h-20  w-45 shadow-2xl flex items-center gap-4 '>
-                    <div className='bg-blue-600 rounded-l-lg p-5 h-full'>
-
-                        <img src={techlogo} className='' alt="" />
+                <div className='w-full max-w-xs rounded-2xl bg-white p-5 shadow-2xl'>
+                    <div className='flex items-center gap-4'>
+                        <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600'>
+                            <img src={techlogo} alt="" className='h-10' />
+                        </div>
+                        <div>
+                            <p className='text-sm text-gray-500'>Total Technicians</p>
+                            <p className='text-2xl font-semibold'>{serviceManList.length}</p>
+                        </div>
                     </div>
-
-                    <div className='text-center  text-lg font-semibold '>
-                        <span>Total Technicians</span>
-                        <p>{serviceManList.length}</p>
-                    </div>
-
                 </div>
-                <div className='h-20  w-45 shadow-2xl flex items-center gap-4 '>
-                    <div className='bg-blue-600 rounded-l-lg p-5 h-full'>
-
-                        <img src={billlogo} className='h-8' alt="" />
+                <div className='w-full max-w-xs rounded-2xl bg-white p-5 shadow-2xl'>
+                    <div className='flex items-center gap-4'>
+                        <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600'>
+                            <img src={billlogo} className='h-8' alt="" />
+                        </div>
+                        <div>
+                            <p className='text-sm text-gray-500'>Total Bills</p>
+                            <p className='text-2xl font-semibold'>{bill.length}</p>
+                        </div>
                     </div>
-
-                    <div className='text-center  text-lg font-semibold '>
-                        <span>Total Bills</span>
-                        <p>{bill.length}</p>
-                    </div>
-
                 </div>
-                <div className='h-20  w-45 shadow-2xl flex items-center gap-4 '>
-                    <div className='bg-blue-600 rounded-l-lg p-5 h-full'>
-
-                        <img src={billlogo} className='h-8' alt="" />
+                <div className='w-full max-w-xs rounded-2xl bg-white p-5 shadow-2xl'>
+                    <div className='flex items-center gap-4'>
+                        <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600'>
+                            <img src={billlogo} className='h-8' alt="" />
+                        </div>
+                        <div>
+                            <p className='text-sm text-gray-500'>Total Quotation</p>
+                            <p className='text-2xl font-semibold'>{quote.length}</p>
+                        </div>
                     </div>
-
-                    <div className='text-center  text-lg font-semibold '>
-                        <span>Total Quotation</span>
-                        <p>{quote.length}</p>
-                    </div>
-
                 </div>
-                <div className='h-20  w-45 shadow-2xl flex items-center gap-4 '>
-                    <div className='bg-blue-600 rounded-l-lg p-5 h-full'>
-
-                        <img src={revenuelogo} className='h-8' alt="" />
+                <div className='w-full max-w-xs rounded-2xl bg-white p-5 shadow-2xl'>
+                    <div className='flex items-center gap-4'>
+                        <div className='flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600'>
+                            <img src={revenuelogo} className='h-8' alt="" />
+                        </div>
+                        <div>
+                            <p className='text-sm text-gray-500'>Total Revenue</p>
+                            <p className='text-2xl font-semibold'>₹{TotalBill}</p>
+                        </div>
                     </div>
-
-                    <div className='text-center  text-lg font-semibold '>
-                        <span>Total Revenue</span>
-                        <p>₹{TotalBill}</p>
-                    </div>
-
                 </div>
-
-
             </div>
 
-            <div className='flex gap-25 justify-center flex-wrap mt-15 ' >
+            <div className='mx-auto mt-12 grid max-w-7xl gap-8 px-4 sm:grid-cols-1 lg:grid-cols-2'>
 
                 <div>
 

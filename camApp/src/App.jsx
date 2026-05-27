@@ -35,7 +35,8 @@ const App = () => {
             <Route path='Serviceman' element={<Serviceman />} />
             <Route path='Bill' element={<Bill />} />
             <Route path='Quate' element={<Quate />} />
-            <Route path='Inventery' element={<Inventery />} />
+                      <Route path='Inventery' element={<Inventery />} />
+        
           </Route>
 
           <Route path='/Service' element={<Sermain />} >

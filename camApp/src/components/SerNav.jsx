@@ -8,6 +8,7 @@ import api from '../Api/Api'
 export const SerNav = () => {
   const navigate = useNavigate()
   const [user, setUser] = useState()
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("User"))
@@ -16,53 +17,38 @@ export const SerNav = () => {
     }
   }, [])
 
-  const userid = JSON.parse(localStorage.getItem("User"))
-
-
   const logout = async () => {
     const user = JSON.parse(localStorage.getItem("User"))
     try {
-      const res = await api.post("/ServiceMan-logout", user)
+      await api.post("/ServiceMan-logout", user)
     } catch (error) {
-      console.log(error.response.data.message);
-
+      console.log(error.response?.data?.message)
     }
-
 
     localStorage.removeItem("ServiceAccessToken")
     localStorage.removeItem("User")
     navigate("/")
   }
 
-
   return (
-    <div className='flex justify-around bg-gray-400 p-4 text-lg text-white font-semibold '>
+    <div className='bg-gray-400 text-white'>
+      <div className='mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-4 py-4'>
+        <div className='flex items-center gap-3'>
+          <img src={logo} className='h-10 animate-spin' alt="" />
+          <span className='font-semibold'>Welcome {user?.name}</span>
+        </div>
 
+        <button onClick={() => setMenuOpen(prev => !prev)} className='md:hidden rounded bg-gray-500 px-3 py-2 text-sm font-semibold hover:bg-gray-600'>Menu</button>
 
-      <div className='flex gap-9 items-center'>
-        <img src={logo} className='h-10 animate-spin transition-all  ' alt="" />
-
-        <h2>
-          Welcome {user?.name}
-        </h2>
+        <div className={`${menuOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`}>
+          <div className='flex flex-col gap-3 rounded bg-gray-500/20 p-4 md:flex-row md:p-0 md:bg-transparent'>
+            <Link to="Home" onClick={() => setMenuOpen(false)} className='block rounded px-3 py-2 text-left hover:bg-gray-600 md:text-white md:hover:bg-transparent'>Home</Link>
+            <Link to="Bills" onClick={() => setMenuOpen(false)} className='block rounded px-3 py-2 text-left hover:bg-gray-600 md:text-white md:hover:bg-transparent'>Create Bill</Link>
+            <Link to="Quotation" onClick={() => setMenuOpen(false)} className='block rounded px-3 py-2 text-left hover:bg-gray-600 md:text-white md:hover:bg-transparent'>Create Quotation</Link>
+            <button onClick={logout} className='rounded bg-red-600 px-3 py-2 text-white hover:bg-red-700 md:ml-2'>Logout</button>
+          </div>
+        </div>
       </div>
-
-      <div className='flex gap-6 items-center' >
-
-        <Link to="Home" >
-          <button>Home</button>
-        </Link>
-        <Link to="Bills" >
-          <button> Create Bill</button>
-        </Link>
-        <Link to="Quotation" >
-          <button > Create Quotation</button>
-        </Link>
-
-        <button onClick={logout}>Logout</button>
-
-      </div>
-
     </div>
   )
 }

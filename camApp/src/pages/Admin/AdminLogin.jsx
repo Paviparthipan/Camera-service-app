@@ -54,14 +54,13 @@ export const AdminLogin = () => {
     }
 
     return (
-        <div className='h-screen bg-no-repeat bg-cover  bg-center  bg-gray-300 flex justify-center items-center'
-         style={{backgroundImage : `url(${bg})`}}>
+        <div className='h-screen bg-no-repeat bg-cover bg-center bg-gray-300 flex items-center justify-center px-4'
+            style={{ backgroundImage: `url(${bg})` }}>
 
-            <div className='w-100 text-center  shadow-2xl bg-black/50  md:min-w-2/5 p-15 rounded-lg h-100 '>
+            <div className='w-full max-w-md rounded-lg bg-black/60 p-8 shadow-2xl text-center'>
+                <h2 className='text-white text-2xl font-semibold'>Admin Login</h2>
 
-                <h2 className='text-white '>Admin Login</h2>
-
-                <form action="" className='mt-5 ' onSubmit={login}>
+                <form action="" className='mt-5' onSubmit={login}>
                     <div className='relative'>
                         <input type="text"
                             name="userName"

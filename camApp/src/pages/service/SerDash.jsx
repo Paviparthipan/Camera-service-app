@@ -63,7 +63,7 @@ export const SerDash = () => {
     }
 
 
-  
+
 
     const bt = bills.map((b) => (b.totalAmount))
     const qt = quote.map((q) => q.totalAmount)
@@ -89,14 +89,13 @@ export const SerDash = () => {
 
 
 
-            <div className=' h-screen  bg-gray-100 '>
-
+            <div className='min-h-screen bg-gray-100 px-4 py-10'>
 
                 <div>
 
 
-                    <div className='flex gap-20 justify-center pt-20 text-lg flex-wrap '>
-                        <div className='bg-white rounded-lg h-50 shadow-2xl w-50 text-center '>
+                    <div className='mx-auto grid max-w-7xl gap-6 pt-20 text-lg lg:grid-cols-4'>
+                        <div className='rounded-lg bg-white p-5 shadow-2xl text-center'>
                             <p className='mt-5 text-xl font-semibold '>Total bills</p>
                             <p>
 
@@ -105,12 +104,12 @@ export const SerDash = () => {
                             </p>
                             <p className='mt-5 text-xl font-semibold'>Total Bill Amount</p>
                             <p>
-                               ₹ {bt.reduce((a, b) => a + b, 0)}
+                                ₹ {bt.reduce((a, b) => a + b, 0)}
 
                             </p>
 
                         </div>
-                        <div className='bg-white rounded-lg h-50 shadow-2xl w-50 text-center '>
+                        <div className='rounded-lg bg-white p-5 shadow-2xl text-center'>
                             <p className='mt-5 text-xl font-semibold'>
                                 Total quotations
                             </p>
@@ -119,9 +118,9 @@ export const SerDash = () => {
                             </p>
                             <p className='mt-5 text-xl font-semibold'>Total Quotation Amount</p>
 
-                           ₹ {qt.reduce((a, b) => a + b, 0)}
+                            ₹ {qt.reduce((a, b) => a + b, 0)}
                         </div>
-                        <div className='bg-white rounded-lg h-50 shadow-2xl w-50 text-center '>
+                        <div className='rounded-lg bg-white p-5 shadow-2xl text-center'>
                             <p className='mt-10 text-xl font-semibold'>
                                 Click to see bill
                             </p>
@@ -129,7 +128,7 @@ export const SerDash = () => {
                             cursor-pointer hover:bg-blue-500
                              bg-blue-600 px-4 py-1 rounded mt-10 text-white'>click</button>
                         </div>
-                        <div className='bg-white rounded-lg h-50 shadow-2xl w-50 text-center '>
+                        <div className='rounded-lg bg-white p-5 shadow-2xl text-center'>
                             <p className='mt-10 text-xl font-semibold'>
                                 Click to see Quotation
                             </p>
@@ -145,34 +144,25 @@ export const SerDash = () => {
 
                     </div>
 
-                    <ul>
-                        {[...quote.slice(-3)].reverse().map((item, index) => (
-                            <li key={item._id} className='flex rounded-sm  cursor-pointer border-l-4 m-2  justify-around p-2 '>
-
-                                <span> Cust-Name {item.customerName} </span>
-                                <span> Cust-num {item.phone} </span>
-                                <span> CreatedBy {item.createdBy.name} </span>
-
-                                <span>Total Quote amount - ₹{item.totalAmount} </span>
-
+                    <ul className='space-y-3'>
+                        {[...quote.slice(-3)].reverse().map((item) => (
+                            <li key={item._id} className='flex flex-col gap-2 rounded-lg border-l-4 border-blue-500 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between'>
+                                <span className='font-semibold'>Cust-Name: {item.customerName}</span>
+                                <span>Cust-num: {item.phone}</span>
+                                <span>CreatedBy: {item.createdBy.name}</span>
+                                <span>Total Quote amount: ₹{item.totalAmount}</span>
                             </li>
                         ))}
-
                     </ul>
-                    <ul>
-                        {[...bills.slice(-3)].reverse().map((item, index) => (
-                            <li key={item._id} className='flex rounded-sm  cursor-pointer border-l-4 m-2  justify-around p-2 '>
-
-
-                                <span> Cust-Name {item.customerName} </span>
-                                <span> Cust-num {item.phone} </span>
-                                <span> CreatedBy {item.createdBy.name} </span>
-
-                                <span>Total Bill amount - ₹{item.totalAmount} </span>
-
+                    <ul className='space-y-3'>
+                        {[...bills.slice(-3)].reverse().map((item) => (
+                            <li key={item._id} className='flex flex-col gap-2 rounded-lg border-l-4 border-green-500 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between'>
+                                <span className='font-semibold'>Cust-Name: {item.customerName}</span>
+                                <span>Cust-num: {item.phone}</span>
+                                <span>CreatedBy: {item.createdBy.name}</span>
+                                <span>Total Bill amount: ₹{item.totalAmount}</span>
                             </li>
                         ))}
-
                     </ul>
 
                 </div>

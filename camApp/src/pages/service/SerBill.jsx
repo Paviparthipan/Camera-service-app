@@ -178,9 +178,9 @@ export const SerBill = () => {
 
 
 
-            <div className='mt-5 flex mx-10 justify-between'>
+            <div className='mt-5 flex flex-col gap-4 px-4 md:flex-row md:items-center md:justify-between'>
 
-                <select name="category" className='border p-2 rounded-sm '
+                <select name="category" className='w-full rounded-sm border p-2 md:w-auto '
                     id="category"
                     value={selectedCategory}
                     onChange={handleCategory}>
@@ -197,21 +197,15 @@ export const SerBill = () => {
 
 
                 </select>
-                <span>
-
+                <span className='flex w-full flex-col gap-3 md:max-w-xl'>
                     <input
-                        className='bg-gray-300  
-                    rounded-sm 
-                    px-4 py-2 
-                    w-95' type="text"
+                        className='w-full rounded-sm bg-gray-300 px-4 py-2'
+                        type="text"
                         value={filterProducts}
                         onChange={(e) => setFilterProducts(e.target.value)}
                         placeholder='Search Product' />
 
-                    <button className='bg-blue-600 py-2  ml-3
-         hover:bg-blue-500
-         text-white px-3
-         rounded cursor-pointer'
+                    <button className='mt-2 rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-500 md:mt-0 md:ml-3'
 
                         onClick={toggleCart}
 
@@ -220,42 +214,29 @@ export const SerBill = () => {
 
             </div>
 
-            <div className='mt-10 m-5 '>
-
+            <div className='mt-10 m-5'>
                 {filterProduct.length === 0 ?
-
                     <p>No products available</p>
-
                     : (
-
-                        <ul className='flex flex-wrap gap-5'>
+                        <ul className='grid gap-4 md:grid-cols-2'>
                             {
                                 filterProduct.map((p) => (
-                                    <li className='border w-full flex justify-evenly p-3 rounded' key={p._id}>
-                                        <span>
-                                            <span className='font-semibold'>
-                                                Product name :
-                                            </span>   {p.name}
-                                        </span>
-                                        <span>
-                                            <span className='font-semibold'>
-
-                                                Brand:
-                                            </span>
-                                            {p.brand}
-                                        </span>
-                                        <span>
-                                            <span className='font-semibold'>
-
-                                                Price
-                                            </span>
-                                            {p.price}
-                                        </span>
+                                    <li className='flex flex-col gap-3 rounded border bg-white p-4 text-left sm:flex-row sm:items-center sm:justify-between' key={p._id}>
+                                        <div>
+                                            <p className='font-semibold'>Product name:</p>
+                                            <p>{p.name}</p>
+                                        </div>
+                                        <div>
+                                            <p className='font-semibold'>Brand:</p>
+                                            <p>{p.brand}</p>
+                                        </div>
+                                        <div>
+                                            <p className='font-semibold'>Price:</p>
+                                            <p>{p.price}</p>
+                                        </div>
                                         <button
-                                            className='bg-blue-600 hover:bg-blue-500
-                     py-1 px-3 rounded text-white cursor-pointer'
+                                            className='rounded bg-blue-600 px-3 py-2 text-white hover:bg-blue-500'
                                             onClick={() => addCart(p)} >Add</button>
-
                                     </li>
                                 ))
                             }
@@ -267,10 +248,8 @@ export const SerBill = () => {
             {showCart &&
 
 
-                <div className='fixed  overflow-y-scroll  transition inset-0 bg-opacity-50  bg-black/65 flex items-center justify-center' >
-
-
-                    <div className='bg-white relative p-10'>
+                <div className='fixed inset-0 z-40 overflow-y-auto bg-black/60 flex items-start justify-center py-10 px-4'>
+                    <div className='relative w-full max-w-3xl rounded-2xl bg-white p-6'>
                         <button onClick={toggleCart} className=' text-lg font-semibold  rounded-2xl hover:bg-red-500 hover:text-white px-2 absolute top-0 right-5'>x</button>
                         <h1 className='text-center mt-5 font-semibold text-xl'>Quotation List</h1>
 
@@ -281,42 +260,25 @@ export const SerBill = () => {
 
 
 
-                            <ul className='flex flex-col mt-4 gap-5'>
+                            <ul className='flex flex-col gap-4 mt-4'>
                                 {cart.map((item, index) => (
-                                    <li className='flex  text-center justify-around  '
+                                    <li className='flex flex-col gap-3 rounded-lg border p-3 text-left sm:flex-row sm:items-center sm:justify-between'
                                         key={item._id}>
-
-                                        <span>{index + 1}</span>
-
-                                        <span>
-
-                                            {item.name}
-                                        </span>
-                                        <span>
-                                            Qty {item.qty}
-                                        </span>
-
-                                        <span>
-
-                                            {item.gst}%
-                                        </span>
-                                        <span>
-
-                                            {item.price}
-                                        </span>
-
+                                        <span className='font-semibold'>{index + 1}. {item.name}</span>
+                                        <span>Qty: {item.qty}</span>
+                                        <span>GST: {item.gst}%</span>
+                                        <span>Price: {item.price}</span>
                                         <button
-                                            className='bg-red-500 hover:bg-red-800
-                     py-1 px-3 rounded text-white cursor-pointer'
-                                            onClick={() => removeCart(item._id)} >Remove</button>  </li>
+                                            className='rounded bg-red-500 px-3 py-2 text-white hover:bg-red-800'
+                                            onClick={() => removeCart(item._id)} >Remove</button>
+                                    </li>
 
 
 
                                 ))}
                             </ul>
 
-                            <p className='text-end mr-39 mt-5 '>Total Amount - {totalAmount}</p>
-
+                            <p className='mt-5 text-right'>Total Amount - {totalAmount}</p>
 
                         </div>}
 
